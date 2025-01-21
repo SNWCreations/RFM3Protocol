@@ -2,6 +2,7 @@ package snw.rfm.api.protocol.packet.s2c;
 
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
+import lombok.Getter;
 import snw.rfm.api.protocol.handler.ClientboundPacketHandler;
 import snw.rfm.api.protocol.packet.Packet;
 import snw.rfm.api.protocol.util.PacketReaders;
@@ -9,6 +10,7 @@ import snw.rfm.api.protocol.util.PacketWriters;
 
 import java.util.UUID;
 
+@Getter
 public class ClientboundRemovePlayerPacket extends Packet<ClientboundPacketHandler> {
     public static final String TYPE = "remove_player";
 
