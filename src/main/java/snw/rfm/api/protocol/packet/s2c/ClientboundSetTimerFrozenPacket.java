@@ -10,15 +10,18 @@ import snw.rfm.api.protocol.packet.Packet;
 public class ClientboundSetTimerFrozenPacket extends Packet<ClientboundPacketHandler> {
     public static final String TYPE = "set_timer_frozen";
 
+    private final long timestamp;
     private final boolean nowFrozen;
 
-    public ClientboundSetTimerFrozenPacket(boolean nowFrozen, String nonce) {
+    public ClientboundSetTimerFrozenPacket(long timestamp, boolean nowFrozen, String nonce) {
         super(nonce);
+        this.timestamp = timestamp;
         this.nowFrozen = nowFrozen;
     }
 
     public ClientboundSetTimerFrozenPacket(ByteArrayDataInput input) {
         super(input);
+        this.timestamp = input.readLong();
         this.nowFrozen = input.readBoolean();
     }
 
@@ -29,6 +32,7 @@ public class ClientboundSetTimerFrozenPacket extends Packet<ClientboundPacketHan
 
     @Override
     public void doSerialization(ByteArrayDataOutput output) {
+        output.writeLong(this.timestamp);
         output.writeBoolean(this.nowFrozen);
     }
 

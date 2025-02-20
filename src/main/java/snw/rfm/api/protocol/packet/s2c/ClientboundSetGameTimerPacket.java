@@ -10,15 +10,18 @@ import snw.rfm.api.protocol.packet.Packet;
 public class ClientboundSetGameTimerPacket extends Packet<ClientboundPacketHandler> {
     public static final String TYPE = "set_game_timer";
 
+    private final long timestamp;
     private final int newValue;
 
-    public ClientboundSetGameTimerPacket(int newValue, String nonce) {
+    public ClientboundSetGameTimerPacket(long timestamp, int newValue, String nonce) {
         super(nonce);
+        this.timestamp = timestamp;
         this.newValue = newValue;
     }
 
     public ClientboundSetGameTimerPacket(ByteArrayDataInput input) {
         super(input);
+        this.timestamp = input.readLong();
         this.newValue = input.readInt();
     }
 
@@ -29,6 +32,7 @@ public class ClientboundSetGameTimerPacket extends Packet<ClientboundPacketHandl
 
     @Override
     public void doSerialization(ByteArrayDataOutput output) {
+        output.writeLong(this.timestamp);
         output.writeInt(this.newValue);
     }
 
