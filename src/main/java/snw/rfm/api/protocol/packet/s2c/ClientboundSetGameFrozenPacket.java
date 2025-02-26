@@ -23,7 +23,7 @@ public class ClientboundSetGameFrozenPacket extends Packet<ClientboundPacketHand
     }
 
     @Override
-    protected String getType() {
+    public String getType() {
         return TYPE;
     }
 

@@ -28,7 +28,7 @@ public abstract class Packet<T extends PacketHandler> {
         return output.toByteArray();
     }
 
-    protected abstract String getType();
+    public abstract String getType();
 
     // write data to the output in the implementations
     public abstract void doSerialization(ByteArrayDataOutput output);

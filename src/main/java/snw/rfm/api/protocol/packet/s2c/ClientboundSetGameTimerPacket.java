@@ -26,7 +26,7 @@ public class ClientboundSetGameTimerPacket extends Packet<ClientboundPacketHandl
     }
 
     @Override
-    protected String getType() {
+    public String getType() {
         return TYPE;
     }
 

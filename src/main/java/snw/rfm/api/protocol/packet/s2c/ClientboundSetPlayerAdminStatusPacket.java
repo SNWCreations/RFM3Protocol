@@ -30,7 +30,7 @@ public class ClientboundSetPlayerAdminStatusPacket extends Packet<ClientboundPac
     }
 
     @Override
-    protected String getType() {
+    public String getType() {
         return TYPE;
     }
 

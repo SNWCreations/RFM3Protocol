@@ -23,7 +23,7 @@ public class ServerboundSetGameTimerPacket extends Packet<ServerboundPacketHandl
     }
 
     @Override
-    protected String getType() {
+    public String getType() {
         return TYPE;
     }
 

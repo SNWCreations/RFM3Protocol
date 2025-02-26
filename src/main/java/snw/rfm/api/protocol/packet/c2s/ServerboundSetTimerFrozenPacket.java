@@ -23,7 +23,7 @@ public class ServerboundSetTimerFrozenPacket extends Packet<ServerboundPacketHan
     }
 
     @Override
-    protected String getType() {
+    public String getType() {
         return TYPE;
     }
 

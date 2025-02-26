@@ -23,7 +23,7 @@ public class ServerboundHelloPacket extends Packet<ServerboundPacketHandler> {
     }
 
     @Override
-    protected String getType() {
+    public String getType() {
         return TYPE;
     }
 

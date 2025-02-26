@@ -35,7 +35,7 @@ public class ServerboundSetPlayerTeamPacket extends Packet<ServerboundPacketHand
     }
 
     @Override
-    protected String getType() {
+    public String getType() {
         return TYPE;
     }
 

@@ -27,7 +27,7 @@ public class ClientboundRemovePlayerPacket extends Packet<ClientboundPacketHandl
     }
 
     @Override
-    protected String getType() {
+    public String getType() {
         return TYPE;
     }
 

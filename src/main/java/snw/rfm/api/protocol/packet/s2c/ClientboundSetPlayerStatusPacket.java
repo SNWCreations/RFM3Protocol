@@ -33,7 +33,7 @@ public class ClientboundSetPlayerStatusPacket extends Packet<ClientboundPacketHa
     }
 
     @Override
-    protected String getType() {
+    public String getType() {
         return TYPE;
     }
 

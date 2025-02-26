@@ -26,7 +26,7 @@ public class ClientboundSetTimerFrozenPacket extends Packet<ClientboundPacketHan
     }
 
     @Override
-    protected String getType() {
+    public String getType() {
         return TYPE;
     }
 
