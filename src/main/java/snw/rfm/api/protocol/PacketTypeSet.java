@@ -48,6 +48,7 @@ public final class PacketTypeSet<T extends PacketHandler> {
         operate(SERVERBOUND, it -> {
             it.register(ServerboundHelloPacket.TYPE, ServerboundHelloPacket::new);
             it.register(ServerboundSetGameTimerPacket.TYPE, ServerboundSetGameTimerPacket::new);
+            it.register(ServerboundSetPlayerOpPacket.TYPE, ServerboundSetPlayerOpPacket::new);
             it.register(ServerboundSetPlayerTeamPacket.TYPE, ServerboundSetPlayerTeamPacket::new);
             it.register(ServerboundSetTimerFrozenPacket.TYPE, ServerboundSetTimerFrozenPacket::new);
         });
