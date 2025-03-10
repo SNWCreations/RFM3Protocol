@@ -3,10 +3,12 @@ package snw.rfm.api.protocol.packet.c2s;
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
 import lombok.Getter;
+import lombok.ToString;
 import snw.rfm.api.protocol.handler.ServerboundPacketHandler;
 import snw.rfm.api.protocol.packet.Packet;
 
 @Getter
+@ToString
 public class ServerboundSetGameTimerPacket extends Packet<ServerboundPacketHandler> {
     public static final String TYPE = "set_game_timer";
 

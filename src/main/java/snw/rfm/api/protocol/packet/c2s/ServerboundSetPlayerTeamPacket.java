@@ -3,6 +3,7 @@ package snw.rfm.api.protocol.packet.c2s;
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
 import lombok.Getter;
+import lombok.ToString;
 import snw.rfm.api.protocol.handler.ServerboundPacketHandler;
 import snw.rfm.api.protocol.packet.Packet;
 import snw.rfm.api.protocol.util.PacketReaders;
@@ -16,6 +17,7 @@ import static snw.rfm.api.protocol.util.PacketHelper.readCollection;
 import static snw.rfm.api.protocol.util.PacketHelper.writeCollection;
 
 @Getter
+@ToString
 public class ServerboundSetPlayerTeamPacket extends Packet<ServerboundPacketHandler> {
     public static final String TYPE = "set_player_team";
 

@@ -3,6 +3,7 @@ package snw.rfm.api.protocol.packet.s2c;
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
 import lombok.Getter;
+import lombok.ToString;
 import snw.rfm.api.protocol.handler.ClientboundPacketHandler;
 import snw.rfm.api.protocol.object.PlayerStatus;
 import snw.rfm.api.protocol.packet.Packet;
@@ -14,6 +15,7 @@ import java.util.UUID;
 import static snw.rfm.api.protocol.util.PacketHelper.writeEnum;
 
 @Getter
+@ToString
 public class ClientboundAddPlayerPacket extends Packet<ClientboundPacketHandler> {
     public static final String TYPE = "add_player";
 
