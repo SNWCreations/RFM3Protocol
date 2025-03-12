@@ -20,7 +20,7 @@ public interface ClientboundPacketHandler extends PacketHandler {
 
     void handleSetPlayerAdminStatus(ClientboundSetPlayerAdminStatusPacket packet);
 
-    void handleSetPlayerStatus(ClientboundSetPlayerStatusPacket packet);
+    void handleSetPlayerTeam(ClientboundSetPlayerTeamPacket packet);
 
     void handleSetTimerFrozen(ClientboundSetTimerFrozenPacket packet);
 

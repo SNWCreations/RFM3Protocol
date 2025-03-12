@@ -5,14 +5,11 @@ import com.google.common.io.ByteArrayDataOutput;
 import lombok.Getter;
 import lombok.ToString;
 import snw.rfm.api.protocol.handler.ClientboundPacketHandler;
-import snw.rfm.api.protocol.object.PlayerStatus;
 import snw.rfm.api.protocol.packet.Packet;
 import snw.rfm.api.protocol.util.PacketReaders;
 import snw.rfm.api.protocol.util.PacketWriters;
 
 import java.util.UUID;
-
-import static snw.rfm.api.protocol.util.PacketHelper.writeEnum;
 
 @Getter
 @ToString
@@ -21,20 +18,17 @@ public class ClientboundAddPlayerPacket extends Packet<ClientboundPacketHandler>
 
     private final UUID playerUUID;
     private final boolean admin;
-    private final PlayerStatus playerStatus;
 
-    public ClientboundAddPlayerPacket(UUID playerUUID, boolean admin, PlayerStatus playerStatus, String nonce) {
+    public ClientboundAddPlayerPacket(UUID playerUUID, boolean admin, String nonce) {
         super(nonce);
         this.playerUUID = playerUUID;
         this.admin = admin;
-        this.playerStatus = playerStatus;
     }
 
     public ClientboundAddPlayerPacket(ByteArrayDataInput input) {
         super(input);
         this.playerUUID = PacketReaders.UUID.read(input);
         this.admin = input.readBoolean();
-        this.playerStatus = PlayerStatus.READER.read(input);
     }
 
     @Override
@@ -46,7 +40,6 @@ public class ClientboundAddPlayerPacket extends Packet<ClientboundPacketHandler>
     public void doSerialization(ByteArrayDataOutput output) {
         PacketWriters.UUID.write(output, this.playerUUID);
         output.writeBoolean(this.admin);
-        writeEnum(output, this.playerStatus);
     }
 
     @Override

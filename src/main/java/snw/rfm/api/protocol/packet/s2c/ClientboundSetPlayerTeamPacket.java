@@ -1,11 +1,11 @@
-package snw.rfm.api.protocol.packet.c2s;
+package snw.rfm.api.protocol.packet.s2c;
 
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
 import lombok.Getter;
 import lombok.ToString;
 import org.jetbrains.annotations.Nullable;
-import snw.rfm.api.protocol.handler.ServerboundPacketHandler;
+import snw.rfm.api.protocol.handler.ClientboundPacketHandler;
 import snw.rfm.api.protocol.packet.Packet;
 import snw.rfm.api.protocol.util.PacketReaders;
 import snw.rfm.api.protocol.util.PacketWriters;
@@ -18,19 +18,19 @@ import static snw.rfm.api.protocol.util.PacketHelper.*;
 
 @Getter
 @ToString
-public class ServerboundSetPlayerTeamPacket extends Packet<ServerboundPacketHandler> {
+public class ClientboundSetPlayerTeamPacket extends Packet<ClientboundPacketHandler> {
     public static final String TYPE = "set_player_team";
 
     private final @Nullable String targetTeam;
     private final Set<UUID> targets;
 
-    public ServerboundSetPlayerTeamPacket(Set<UUID> targets, @Nullable String targetTeam, String nonce) {
+    public ClientboundSetPlayerTeamPacket(Set<UUID> targets, @Nullable String targetTeam, String nonce) {
         super(nonce);
         this.targetTeam = targetTeam;
         this.targets = targets;
     }
 
-    public ServerboundSetPlayerTeamPacket(ByteArrayDataInput input) {
+    public ClientboundSetPlayerTeamPacket(ByteArrayDataInput input) {
         super(input);
         this.targetTeam = readOptional(input, ByteArrayDataInput::readUTF);
         this.targets = readCollection(input, HashSet::new, PacketReaders.UUID);
@@ -48,7 +48,7 @@ public class ServerboundSetPlayerTeamPacket extends Packet<ServerboundPacketHand
     }
 
     @Override
-    public void handle(ServerboundPacketHandler handler) {
+    public void handle(ClientboundPacketHandler handler) {
         handler.handleSetPlayerTeam(this);
     }
 }

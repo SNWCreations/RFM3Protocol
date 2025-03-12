@@ -2,6 +2,7 @@ package snw.rfm.api.protocol.util;
 
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
 import java.util.Map;
@@ -51,6 +52,24 @@ public final class PacketHelper {
         output.writeInt(collection.size());
         for (T element : collection) {
             writer.write(output, element);
+        }
+    }
+
+    public static <T> @Nullable T readOptional(ByteArrayDataInput input, PacketReader<T> reader) {
+        T t;
+        if (input.readBoolean()) {
+            t = reader.read(input);
+        } else {
+            t = null;
+        }
+        return t;
+    }
+
+    public static <T> void writeOptional(ByteArrayDataOutput output, @Nullable T value, PacketWriter<T> writer) {
+        boolean notNull = value != null;
+        output.writeBoolean(notNull);
+        if (notNull) {
+            writer.write(output, value);
         }
     }
 
