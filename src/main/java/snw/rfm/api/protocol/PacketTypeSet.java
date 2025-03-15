@@ -64,7 +64,6 @@ public final class PacketTypeSet<T extends PacketHandler> {
             it.register(ClientboundSetGameFrozenPacket.TYPE, ClientboundSetGameFrozenPacket::new);
             it.register(ClientboundSetGameTimerPacket.TYPE, ClientboundSetGameTimerPacket::new);
             it.register(ClientboundSetPlayerAdminStatusPacket.TYPE, ClientboundSetPlayerAdminStatusPacket::new);
-            it.register(ClientboundSetPlayerStatusPacket.TYPE, ClientboundSetPlayerStatusPacket::new);
             it.register(ClientboundSetTimerFrozenPacket.TYPE, ClientboundSetTimerFrozenPacket::new);
             it.register(ClientboundStartGamePacket.TYPE, ClientboundStartGamePacket::new);
         });
