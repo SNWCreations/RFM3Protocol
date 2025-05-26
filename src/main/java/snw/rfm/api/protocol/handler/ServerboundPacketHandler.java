@@ -5,6 +5,8 @@ import snw.rfm.api.protocol.packet.c2s.*;
 public interface ServerboundPacketHandler extends PacketHandler {
     void handleHello(ServerboundHelloPacket packet);
 
+    void handleSetGameFrozen(ServerboundSetGameFrozenPacket packet);
+
     void handleSetGameTimer(ServerboundSetGameTimerPacket packet);
 
     void handleSetPlayerOp(ServerboundSetPlayerOpPacket packet);
