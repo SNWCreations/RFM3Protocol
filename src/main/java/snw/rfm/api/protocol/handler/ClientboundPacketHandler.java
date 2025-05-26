@@ -10,6 +10,8 @@ public interface ClientboundPacketHandler extends PacketHandler {
 
     void handleHello(ClientboundHelloPacket packet);
 
+    void handlePlayerAbilities(ClientboundPlayerAbilitiesPacket packet);
+
     void handleRemovePlayer(ClientboundRemovePlayerPacket packet);
 
     void handleResponse(ClientboundActionResponsePacket packet);
