@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'java-library'
     id 'maven-publish'
 }
 
@@ -14,6 +15,7 @@ def lombok = "org.projectlombok:lombok:1.18.32"
 dependencies {
     compileOnly "com.google.guava:guava:31.1-jre"
     compileOnly "org.jetbrains:annotations:24.1.0"
+    api "com.github.SNWCreations:RFMCommons:48e63e3982"
 
     compileOnly lombok
     annotationProcessor lombok
