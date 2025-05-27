@@ -10,20 +10,25 @@ import snw.rfm.api.protocol.packet.Packet;
 import snw.rfm.api.protocol.util.PacketReaders;
 import snw.rfm.api.protocol.util.PacketWriters;
 
+import java.util.UUID;
+
 @ToString
 @Getter
 public class ClientboundPlayerAbilitiesPacket extends Packet<ClientboundPacketHandler> {
     public static final String TYPE = "player_abilities";
 
+    private final UUID dataOwner;
     private final GamePlayerAbilities updated;
 
-    public ClientboundPlayerAbilitiesPacket(GamePlayerAbilities updated, String nonce) {
+    public ClientboundPlayerAbilitiesPacket(UUID dataOwner, GamePlayerAbilities updated, String nonce) {
         super(nonce);
+        this.dataOwner = dataOwner;
         this.updated = updated;
     }
 
     public ClientboundPlayerAbilitiesPacket(ByteArrayDataInput input) {
         super(input);
+        this.dataOwner = PacketReaders.UUID.read(input);
         this.updated = PacketReaders.PLAYER_ABILITIES.read(input);
     }
 
@@ -34,6 +39,7 @@ public class ClientboundPlayerAbilitiesPacket extends Packet<ClientboundPacketHa
 
     @Override
     public void doSerialization(ByteArrayDataOutput output) {
+        PacketWriters.UUID.write(output, dataOwner);
         PacketWriters.PLAYER_ABILITIES.write(output, this.updated);
     }
 

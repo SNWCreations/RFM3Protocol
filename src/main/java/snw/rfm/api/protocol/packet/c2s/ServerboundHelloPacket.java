@@ -13,15 +13,18 @@ public class ServerboundHelloPacket extends Packet<ServerboundPacketHandler> {
     public static final String TYPE = "hello";
 
     private final int protocolVersion;
+    private final boolean receiveAllPlayerAbilities;
 
-    public ServerboundHelloPacket(int protocolVersion, String nonce) {
+    public ServerboundHelloPacket(int protocolVersion, boolean receiveAllPlayerAbilities, String nonce) {
         super(nonce);
         this.protocolVersion = protocolVersion;
+        this.receiveAllPlayerAbilities = receiveAllPlayerAbilities;
     }
 
     public ServerboundHelloPacket(ByteArrayDataInput input) {
         super(input);
         this.protocolVersion = input.readInt();
+        this.receiveAllPlayerAbilities = input.readBoolean();
     }
 
     @Override
@@ -32,6 +35,7 @@ public class ServerboundHelloPacket extends Packet<ServerboundPacketHandler> {
     @Override
     public void doSerialization(ByteArrayDataOutput output) {
         output.writeInt(this.protocolVersion);
+        output.writeBoolean(this.receiveAllPlayerAbilities);
     }
 
     @Override
