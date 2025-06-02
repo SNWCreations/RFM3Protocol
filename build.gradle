@@ -9,6 +9,10 @@ version = '0.1.0'
 
 repositories {
     mavenCentral()
+    maven {
+        name = "JitPack"
+        url = "https://jitpack.io/"
+    }
 }
 
 def lombok = "org.projectlombok:lombok:1.18.32"
