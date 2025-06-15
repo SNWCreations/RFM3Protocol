@@ -3,9 +3,9 @@ package snw.rfm.api.protocol;
 import com.google.common.base.Preconditions;
 import com.google.common.io.ByteArrayDataInput;
 import snw.rfm.api.protocol.handler.ClientboundPacketHandler;
+import snw.rfm.api.protocol.handler.PacketHandler;
 import snw.rfm.api.protocol.handler.ServerboundPacketHandler;
 import snw.rfm.api.protocol.packet.Packet;
-import snw.rfm.api.protocol.handler.PacketHandler;
 import snw.rfm.api.protocol.packet.c2s.*;
 import snw.rfm.api.protocol.packet.s2c.*;
 

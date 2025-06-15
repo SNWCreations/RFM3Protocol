@@ -1,8 +1,8 @@
 package snw.rfm.api.protocol.serial;
 
 import org.jetbrains.annotations.Nullable;
-import snw.rfm.api.protocol.packet.Packet;
 import snw.rfm.api.protocol.handler.PacketHandler;
+import snw.rfm.api.protocol.packet.Packet;
 
 public record PacketContainer<T extends PacketHandler>(
         String type,
