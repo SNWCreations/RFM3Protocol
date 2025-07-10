@@ -17,7 +17,17 @@ public final class PacketReaders {
         PLAYER_ABILITIES = input -> {
             final GamePlayerAbilities result = new GamePlayerAbilities();
             final boolean inGame = input.readBoolean();
+            final boolean maybeCaught = input.readBoolean();
+            final boolean canBeCaught = input.readBoolean();
+            final boolean canCatchOthers = input.readBoolean();
+            final boolean canAbandon = input.readBoolean();
+            final boolean canReceiveNotifications = input.readBoolean();
             result.setInGame(inGame);
+            result.setMayBeCaught(maybeCaught);
+            result.setCanBeCaught(canBeCaught);
+            result.setCanCatchOthers(canCatchOthers);
+            result.setCanAbandon(canAbandon);
+            result.setCanReceiveNotifications(canReceiveNotifications);
             return result;
         };
     }

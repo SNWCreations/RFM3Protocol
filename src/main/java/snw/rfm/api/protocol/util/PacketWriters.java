@@ -17,7 +17,17 @@ public final class PacketWriters {
         };
         PLAYER_ABILITIES = (output, abilities) -> {
             final boolean inGame = abilities.isInGame();
+            final boolean mayBeCaught = abilities.isMayBeCaught();
+            final boolean canBeCaught = abilities.isCanBeCaught();
+            final boolean canCatchOthers = abilities.isCanCatchOthers();
+            final boolean canAbandon = abilities.isCanAbandon();
+            final boolean canReceiveNotifications = abilities.isCanReceiveNotifications();
             output.writeBoolean(inGame);
+            output.writeBoolean(mayBeCaught);
+            output.writeBoolean(canBeCaught);
+            output.writeBoolean(canCatchOthers);
+            output.writeBoolean(canAbandon);
+            output.writeBoolean(canReceiveNotifications);
         };
     }
 

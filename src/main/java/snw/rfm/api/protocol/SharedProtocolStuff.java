@@ -2,8 +2,8 @@ package snw.rfm.api.protocol;
 
 public final class SharedProtocolStuff {
     public static final String CHANNEL = "rfm:main";
-    public static final int PROTOCOL_VERSION = 3;
-    public static final int LAST_INCOMPATIBLE_PROTOCOL_VERSION = 2;
+    public static final int PROTOCOL_VERSION = 4;
+    public static final int LAST_INCOMPATIBLE_PROTOCOL_VERSION = 3;
 
     public static boolean compatibleProtocol(int version) {
         if (version == PROTOCOL_VERSION) {
