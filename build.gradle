@@ -19,7 +19,11 @@ def lombok = "org.projectlombok:lombok:1.18.32"
 dependencies {
     compileOnly "com.google.guava:guava:31.1-jre"
     compileOnly "org.jetbrains:annotations:24.1.0"
-    api "com.github.SNWCreations:RFMCommons:48e63e3982"
+    if (parent != null) { // should only be true if we're in the plugin project
+        api parent.project(":api:common")
+    } else { // or maybe we're compiling outside the plugin project
+        api "com.github.SNWCreations.RunForMoney3API:common:main-SNAPSHOT"
+    }
 
     compileOnly lombok
     annotationProcessor lombok
